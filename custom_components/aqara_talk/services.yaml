@@ -1,0 +1,11 @@
+get_config:
+  name: Get go2rtc configuration
+  description: Return diagnostic and talk source suggestions, plus card and runtime YAML for entries linked to a camera. Does not edit configuration or contact the camera.
+  fields:
+    entry_id:
+      name: Configuration entry
+      description: Required when there is more than one loaded Aqara Talk entry.
+      required: false
+      selector:
+        config_entry:
+          integration: aqara_talk

@@ -1,0 +1,8 @@
+# Action fragment, not a complete automation. Replace the target and dashboard path.
+action: notify.mobile_app_your_phone
+data:
+  title: Doorbell
+  message: Someone is at the door.
+  data:
+    url: /dashboard-doorbell/doorbell
+    clickAction: /dashboard-doorbell/doorbell

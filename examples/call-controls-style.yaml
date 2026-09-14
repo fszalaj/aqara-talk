@@ -1,0 +1,6 @@
+# Optional card-mod fragment for ACC 8.1.x; merge into card.yaml.
+card_mod:
+  style:
+    .: ':host { overflow: hidden !important; }'
+    advanced-camera-card-views$ advanced-camera-card-live$ advanced-camera-card-live-grid$ advanced-camera-card-live-carousel$: 'advanced-camera-card-call-controls
+      { bottom: 120px !important; }'

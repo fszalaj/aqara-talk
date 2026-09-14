@@ -1,0 +1,37 @@
+# Replace camera.aqara_doorbell with your Frigate camera entity.
+type: custom:advanced-camera-card
+cameras:
+- camera_entity: camera.aqara_doorbell
+  live_provider: go2rtc
+  go2rtc:
+    stream: aqara_talk
+    metadata_fetch_timeout_seconds: 10
+  capabilities:
+    force:
+    - 2-way-audio
+view:
+  default: live
+dimensions:
+  aspect_ratio_mode: static
+  aspect_ratio: '4:3'
+  height: min(50vh, 72vw, 480px)
+menu:
+  style: overlay
+  position: bottom
+  auto_hide: []
+  buttons:
+    mute:
+      enabled: true
+    call:
+      enabled: true
+    microphone:
+      enabled: true
+live:
+  controls:
+    builtin: true
+  auto_unmute: [call]
+  auto_mute: [call]
+  microphone:
+    always_connected: false
+    auto_unmute:
+    - call

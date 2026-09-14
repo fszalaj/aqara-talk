@@ -1,0 +1,7 @@
+streams:
+  doorbell:
+    - rtsp://REPLACE_USER:REPLACE_PASSWORD@REPLACE_CAMERA_IP:8554/ch1#backchannel=0
+    - ffmpeg:doorbell#audio=opus
+  aqara_talk:
+    - rtsp://127.0.0.1:8554/doorbell?video=h264&audio=opus&audio=aac#backchannel=0
+    - exec:python3 /config/custom_components/aqara_talk/bridge.py REPLACE_CAMERA_IP --input-format alaw --ffmpeg /usr/bin/ffmpeg --settings-file /config/aqara_talk/REPLACE_CAMERA_IP.json#backchannel=1#audio=pcma/8000#killsignal=15#killtimeout=5

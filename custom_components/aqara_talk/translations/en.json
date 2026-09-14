@@ -1,0 +1,68 @@
+{
+  "title": "Aqara Talk",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Choose your camera",
+        "description": "Select an existing Home Assistant camera. Aqara Talk checks the owning Frigate integration automatically. This does not start a call.",
+        "data": {
+          "camera_entity": "Camera"
+        }
+      },
+      "runtime": {
+        "title": "Connect to go2rtc",
+        "description": "This camera is not owned by Frigate. Enter the API address of the go2rtc instance used by the WebRTC Camera integration. The built-in Home Assistant go2rtc runtime does not support this bridge setup.",
+        "data": {
+          "runtime_url": "go2rtc API URL"
+        }
+      },
+      "streams": {
+        "title": "Match the camera and streams",
+        "description": "Mapped streams: {matches}. Choose the original video stream and, if already installed, its separate Aqara Talk stream. Leave the talk stream empty to generate a new one. Confirm the physical camera IPv4, not the server address. Existing entries keep their camera address.",
+        "data": {
+          "video_stream": "Original video stream",
+          "talk_stream": "Existing Aqara Talk stream (optional)",
+          "host": "Physical camera IPv4",
+          "name": "Name"
+        }
+      },
+      "no_streams": {
+        "title": "No streams found",
+        "description": "The runtime responded but contains no selectable streams. Add this camera to Frigate or go2rtc first, then submit to check again. See the Aqara Talk setup guide for the runtime requirements."
+      }
+    },
+    "error": {
+      "invalid_input": "Use a valid physical camera IPv4 and name. Choose different existing video and talk streams. Reconfigure cannot change the camera IP.",
+      "camera_missing": "Choose an existing camera entity.",
+      "invalid_url": "Enter an HTTP(S) API URL without credentials, query or fragment.",
+      "integration_missing": "Set up the camera in Frigate or install WebRTC Camera for go2rtc.",
+      "frigate_client_incompatible": "The Frigate integration is not loaded or exposes an unsupported API. Reload or update it and retry.",
+      "unauthorized": "The runtime rejected access. Check authentication in its Home Assistant integration.",
+      "cannot_connect": "Cannot read the runtime. Check the API address, network, certificate and integration logs, then retry.",
+      "invalid_response": "The runtime returned an unsupported response. Check that this is its API endpoint.",
+      "redirect_not_allowed": "Use the final API address; redirects are not followed.",
+      "talk_camera_mismatch": "That talk stream belongs to another camera. Choose the matching stream or leave it empty.",
+      "camera_unavailable": "The camera is unavailable. Restore its connection and retry.",
+      "video_camera_mismatch": "The video stream targets another camera. Select the matching stream and confirm its IP."
+    },
+    "abort": {
+      "already_configured": "This camera IPv4 is already configured. Open its Aqara Talk entry and choose Reconfigure.",
+      "reconfigure_successful": "Camera and streaming settings updated. Open Aqara Talk in the sidebar."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aqara Talk options",
+        "description": "Maximum call duration automatically stops a forgotten call (default 180 seconds, or 3 minutes). Changes apply to the next call.",
+        "data": {
+          "max_duration": "Maximum call duration (seconds)"
+        }
+      }
+    },
+    "error": {
+      "invalid_duration": "Enter a whole number of seconds from 1 to 3600.",
+      "storage_error": "Could not save settings. Check Home Assistant configuration directory permissions and try again."
+    }
+  }
+}

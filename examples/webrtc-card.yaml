@@ -1,0 +1,11 @@
+type: custom:webrtc-camera
+ui: true
+streams:
+  - url: aqara_talk
+    name: Listen
+    mode: webrtc
+    media: video,audio
+  - url: aqara_talk
+    name: Speak
+    mode: webrtc
+    media: video,audio,microphone

@@ -1,0 +1,15 @@
+{
+  "domain": "aqara_talk",
+  "name": "Aqara Talk",
+  "codeowners": [
+    "@fszalaj"
+  ],
+  "config_flow": true,
+  "dependencies": ["frontend", "http", "panel_custom"],
+  "documentation": "https://github.com/fszalaj/aqara-talk",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/fszalaj/aqara-talk/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

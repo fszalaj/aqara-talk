@@ -1,0 +1,68 @@
+{
+  "title": "Aqara Talk",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wybierz kamerę",
+        "description": "Wybierz kamerę dodaną do Home Assistanta. Aqara Talk automatycznie sprawdzi jej integrację Frigate. Nie rozpoczyna to rozmowy.",
+        "data": {
+          "camera_entity": "Kamera"
+        }
+      },
+      "runtime": {
+        "title": "Połącz z go2rtc",
+        "description": "Ta kamera nie należy do Frigate. Podaj adres API instancji go2rtc używanej przez integrację WebRTC Camera. Wbudowany w HA go2rtc nie obsługuje tej konfiguracji mostu.",
+        "data": {
+          "runtime_url": "Adres API go2rtc"
+        }
+      },
+      "streams": {
+        "title": "Dopasuj kamerę i strumienie",
+        "description": "Powiązane strumienie: {matches}. Wybierz źródłowy strumień obrazu i osobny strumień Aqara Talk, jeśli jest już skonfigurowany. Pozostaw rozmowę pustą, aby wygenerować nowy. Potwierdź IPv4 fizycznej kamery, nie serwera. Istniejący wpis zachowuje adres kamery.",
+        "data": {
+          "video_stream": "Źródłowy strumień obrazu",
+          "talk_stream": "Istniejący strumień Aqara Talk (opcjonalnie)",
+          "host": "IPv4 fizycznej kamery",
+          "name": "Nazwa"
+        }
+      },
+      "no_streams": {
+        "title": "Brak strumieni",
+        "description": "Serwer odpowiedział, ale nie zawiera dostępnych strumieni. Dodaj kamerę do Frigate lub go2rtc, a następnie zatwierdź, aby sprawdzić ponownie. Wymagania serwera opisuje instrukcja Aqara Talk."
+      }
+    },
+    "error": {
+      "invalid_input": "Podaj poprawny IPv4 fizycznej kamery i nazwę. Wybierz różne istniejące strumienie obrazu i rozmowy. Rekonfiguracja nie zmienia IP kamery.",
+      "camera_missing": "Wybierz istniejącą encję kamery.",
+      "invalid_url": "Podaj adres API HTTP(S) bez danych logowania, parametrów i fragmentu.",
+      "integration_missing": "Dodaj kamerę do Frigate lub zainstaluj WebRTC Camera dla go2rtc.",
+      "frigate_client_incompatible": "Integracja Frigate nie jest załadowana lub udostępnia nieobsługiwane API. Przeładuj lub zaktualizuj ją i spróbuj ponownie.",
+      "unauthorized": "Serwer odrzucił dostęp. Sprawdź logowanie w jego integracji Home Assistant.",
+      "cannot_connect": "Nie można odczytać serwera. Sprawdź adres API, sieć, certyfikat i logi integracji, a następnie spróbuj ponownie.",
+      "invalid_response": "Serwer zwrócił nieobsługiwaną odpowiedź. Sprawdź, czy podano adres API.",
+      "redirect_not_allowed": "Podaj docelowy adres API; przekierowania nie są obsługiwane.",
+      "talk_camera_mismatch": "Ten strumień rozmowy należy do innej kamery. Wybierz właściwy lub pozostaw pole puste.",
+      "camera_unavailable": "Kamera nie udostępnia aktualnego stanu. Przywróć jej połączenie i spróbuj ponownie.",
+      "video_camera_mismatch": "Strumień obrazu wskazuje inną kamerę. Wybierz właściwy strumień i potwierdź IP kamery."
+    },
+    "abort": {
+      "already_configured": "Ten IPv4 kamery jest już skonfigurowany. Otwórz jego wpis Aqara Talk i wybierz Rekonfiguruj.",
+      "reconfigure_successful": "Ustawienia kamery i strumieni zapisane. Otwórz Aqara Talk w panelu bocznym."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje Aqara Talk",
+        "description": "Maksymalny czas rozmowy automatycznie kończy zapomniane połączenie (domyślnie 180 sekund, czyli 3 minuty). Zmiana obowiązuje od następnej rozmowy.",
+        "data": {
+          "max_duration": "Maksymalny czas rozmowy (sekundy)"
+        }
+      }
+    },
+    "error": {
+      "invalid_duration": "Podaj całkowitą liczbę sekund od 1 do 3600.",
+      "storage_error": "Nie udało się zapisać ustawień. Sprawdź uprawnienia katalogu konfiguracji Home Assistant i spróbuj ponownie."
+    }
+  }
+}
